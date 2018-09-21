@@ -1,30 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import marked from 'marked';
-import Markdown from './markdown';
-import Previewer from './preview';
+import Card from './components/card';
+import Controls from './components/controls';
 
-class Mark extends React.Component{
-    constructor(props) {
-        super(props);
+class Container extends React.Component {
+	constructor(props) {
+		super();
+	}
 
-        this.state = {
-            marked: '# That how marked looks like'
-        }
-    }
+	render() {
+		let html = (
+			<div className="container">
+				<Card />
+				<Controls />
+			</div>
+		);
 
-    render() {
-        let html = (
-            <div className="container">
-                <Markdown markdownText={ this.state.marked } />
-                <Previewer previewText={ this.state.marked } />
-            </div>
-        );
-       return(html);
-    }
+		return (html);
+	}
 }
 
-ReactDOM.render(<Mark />, document.getElementById('root'));
+ReactDOM.render(<Container />, document.getElementById('root'));
 
 
